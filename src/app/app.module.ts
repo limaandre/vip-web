@@ -11,11 +11,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HomeComponent } from './pages/home/home.component';
+import { ProdutoComponent } from './pages/produto/produto.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorHelpers } from './helpers/interceptor.helpers';
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    HomeComponent,
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,13 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorHelpers, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
