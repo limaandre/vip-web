@@ -12,12 +12,12 @@ export class AppService {
 
     constructor(private http: HttpClient) { }
 
-    private request(method: string, url: string, param: object = null) {
+    private request(method: string, url: string, param: any = null) {
         let request = null;
 
         if (method === 'get') {
             if (param) {
-                url += '?' + this.objectToUrl(param);
+                url += '/' + param.id;
             }
             request = this.http.get<any>(`${this.urlApi + url}`);
         } else if (method === 'post') {
@@ -32,7 +32,7 @@ export class AppService {
             );
         } else if (method === 'delete') {
             if (param) {
-                url += '?' + this.objectToUrl(param);
+                url += '/' + param.id;
             }
             request = this.http.delete(
                 `${this.urlApi + url}`
@@ -53,7 +53,7 @@ export class AppService {
         return str;
     }
 
-    cliente(cliente: Cliente, httpType: string): Observable<object> {
+    cliente(cliente: any, httpType: string): Observable<object> {
         return this.request(httpType, `cliente`, cliente);
     }
 }

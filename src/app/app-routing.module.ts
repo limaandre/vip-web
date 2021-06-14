@@ -9,6 +9,14 @@ const routes: Routes = [
         path: 'cliente',
         loadChildren: () => import('./pages/cliente/cliente-listar/cliente-listar.module').then((modulo) => modulo.ClienteListarModule),
     },
+    {
+        path: 'cliente/form',
+        loadChildren: () => import('./pages/cliente/cliente-form/cliente-form.module').then((modulo) => modulo.ClienteFormModule),
+    },
+    {
+        path: 'cliente/form/:id',
+        loadChildren: () => import('./pages/cliente/cliente-form/cliente-form.module').then((modulo) => modulo.ClienteFormModule),
+    },
 ];
 
 @NgModule({

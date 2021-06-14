@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError, from } from 'rxjs';
 import { map, catchError, finalize, mergeMap } from 'rxjs/operators';
 import { LoadingService } from '../services/loading.service';
-
+import Swal from 'sweetalert2';
 @Injectable()
 export class InterceptorHelpers implements HttpInterceptor {
 
@@ -118,16 +118,16 @@ export class InterceptorHelpers implements HttpInterceptor {
             redirect,
             page
         } = params;
-        // Swal.fire({
-        //     title: headerError,
-        //     text: msgError,
-        //     icon: 'error',
-        //     confirmButtonText: btnAlert,
-        //     preConfirm: async () => {
-        //         if (redirect && page) {
-        //             this.router.navigate([page]);
-        //         }
-        //     }
-        // });
+        Swal.fire({
+            title: headerError,
+            text: msgError,
+            icon: 'error',
+            confirmButtonText: btnAlert,
+            preConfirm: async () => {
+                if (redirect && page) {
+                    this.router.navigate([page]);
+                }
+            }
+        });
     }
 }

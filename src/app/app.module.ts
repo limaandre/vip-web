@@ -16,6 +16,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProdutoComponent } from './pages/produto/produto.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorHelpers } from './helpers/interceptor.helpers';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,8 @@ import { InterceptorHelpers } from './helpers/interceptor.helpers';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorHelpers, multi: true }

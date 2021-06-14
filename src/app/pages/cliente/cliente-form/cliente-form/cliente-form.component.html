@@ -1,0 +1,57 @@
+<div class="loading-indicator" *ngIf="loadingService.loading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+
+
+<div class="componente-container">
+    <div class="m-b-20">
+        <a mat-button routerLink="/cliente">Cliente </a> / <a mat-button class="color-text-primary">Cadastro de
+            usuário</a>
+    </div>
+    <mat-card>
+        <form class="form-padrao" [formGroup]="form" (ngSubmit)="form.valid && cadastrar()" novalidate>
+            <mat-form-field class="m-t-20 w-100">
+                <input matInput placeholder="Codigo do cliente" formControlName="codigoCliente" required
+                    autocomplete="off">
+                <mat-error>Campo é obrigatório</mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="m-t-20 w-100">
+                <input matInput placeholder="Nome do cliente" formControlName="nome" required
+                    autocomplete="off">
+                <mat-error>Campo é obrigatório</mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="m-t-20 w-100">
+                <input matInput placeholder="CPF" formControlName="cpf" required autocomplete="off"
+                    mask="000.000.000-00">
+                <mat-error *ngIf="form.get('cpf').invalid">{{cpfErroMensagem()}}</mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="m-t-20 w-100">
+                <input matInput placeholder="E-mail" formControlName="email" required email autocomplete="off">
+                <mat-error *ngIf="form.get('email').invalid">{{emailErroMensagem()}}</mat-error>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="m-t-20 w-100">
+                <mat-label>Sexo</mat-label>
+                <mat-select required formControlName="sexo">
+                    <mat-option value="m">Masculino</mat-option>
+                    <mat-option value="f">Feminino</mat-option>
+                    <mat-option value="o">Outros</mat-option>
+                </mat-select>                
+                <mat-error>Campo é obrigatório</mat-error>
+            </mat-form-field>
+            <div class="m-t-20">
+                <button mat-raised-button color="primary" [disabled]="!form.valid">Salvar</button>
+            </div>
+        </form>
+
+    </mat-card>
+
+</div>
