@@ -1,0 +1,56 @@
+<div class="loading-indicator" *ngIf="loadingService.loading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+
+
+<div class="componente-container">
+  <div class="m-b-20">
+    <a mat-button routerLink="/produto">Produto </a> / <a mat-button class="color-text-primary">Cadastro de
+      produto</a>
+  </div>
+  <mat-card>
+    <form class="form-padrao" [formGroup]="form" (ngSubmit)="form.valid && cadastrar()" novalidate>
+      <mat-form-field class="m-t-20 w-100">
+        <input matInput placeholder="Codigo do produto" formControlName="codigoProduto" required autocomplete="off">
+        <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="m-t-20 w-100">
+        <input matInput placeholder="Nome do produto" formControlName="nome" required autocomplete="off">
+        <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="m-t-20 w-100">
+        <input matInput placeholder="Valor" formControlName="valor" required autocomplete="off" 
+            mask="separator.2" thousandSeparator="." 
+        >
+        <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="m-t-20 w-100">
+        <input matInput placeholder="Tamanho" formControlName="tamanho" required autocomplete="off">
+        <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="m-t-20 w-100">
+        <mat-label>Fabricação</mat-label>
+        <mat-select required formControlName="fabricacao">
+          <mat-option value="n">Nacional</mat-option>
+          <mat-option value="i">Importada</mat-option>
+        </mat-select>
+        <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+
+      <div class="m-t-20">
+        <button mat-raised-button color="primary" [disabled]="!form.valid">Salvar</button>
+      </div>
+    </form>
+
+  </mat-card>
+
+</div>

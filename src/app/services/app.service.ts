@@ -42,18 +42,11 @@ export class AppService {
         return request;
     }
 
-    private objectToUrl(object) {
-        let str = '';
-        for (const key of Object.keys(object)) {
-            if (str !== '') {
-                str += '&';
-            }
-            str += key + '=' + encodeURIComponent(object[key]);
-        }
-        return str;
-    }
-
     cliente(cliente: any, httpType: string): Observable<object> {
         return this.request(httpType, `cliente`, cliente);
+    }
+
+    produto(produto: any, httpType: string): Observable<object> {
+        return this.request(httpType, `produto`, produto);
     }
 }

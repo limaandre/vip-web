@@ -11,9 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './pages/home/home.component';
-import { ProdutoComponent } from './pages/produto/produto.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorHelpers } from './helpers/interceptor.helpers';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
@@ -24,8 +25,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
   declarations: [
     AppComponent,
     MainNavComponent,
-    HomeComponent,
-    ProdutoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +37,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
+    MatCardModule,
     HttpClientModule,
     MatProgressSpinnerModule,
     NgxMaskModule.forRoot(),

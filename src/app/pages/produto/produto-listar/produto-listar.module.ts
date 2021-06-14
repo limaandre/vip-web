@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ClienteListarRoutingModule } from './cliente-listar-routing.module';
-import { ClienteListarComponent } from './cliente-listar/cliente-listar.component';
+import { ProdutoListarRoutingModule } from './produto-listar-routing.module';
+import { ProdutoListarComponent } from './produto-listar/produto-listar.component';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,10 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 @NgModule({
-    declarations: [ClienteListarComponent],
+    declarations: [ProdutoListarComponent],
     imports: [
         CommonModule,
-        ClienteListarRoutingModule,
+        ProdutoListarRoutingModule,
         MatProgressSpinnerModule,
         MatDialogModule,
         FormsModule,
@@ -31,4 +31,4 @@ import {FormsModule} from '@angular/forms';
         MatPaginatorModule,
     ]
 })
-export class ClienteListarModule { }
+export class ProdutoListarModule { }

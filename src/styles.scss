@@ -43,12 +43,20 @@ body {
     margin-top: 20px;
 }
 
+.m-t-20em {
+    margin-top: 20em;
+}
+
 .w-100 {
-    width: 100%;
+    width: 100% !important;
 }
 
 .w-50 {
     width: 50%;
+}
+
+.p-5e  {
+    padding: 5em;
 }
 
 .p-t-50  {
