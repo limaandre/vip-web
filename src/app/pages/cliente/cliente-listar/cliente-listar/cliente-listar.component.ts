@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { LoadingService } from './../../../../services/loading.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     templateUrl: './cliente-listar.component.html',
     styleUrls: ['./cliente-listar.component.scss']
 })
-export class ClienteListarComponent implements AfterViewInit {
+export class ClienteListarComponent implements OnInit {
     @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
     displayedColumns: string[] = ['codigoCliente', 'nome', 'cpf', 'email', 'sexo', 'editar', 'excluir'];
@@ -25,7 +25,7 @@ export class ClienteListarComponent implements AfterViewInit {
         public loadingService: LoadingService
     ) { }
 
-    ngAfterViewInit() {
+    ngOnInit() {
         this.search();
     }
 

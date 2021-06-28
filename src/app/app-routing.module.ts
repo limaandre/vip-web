@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/notFound/notFound.component';
 
 
 const routes: Routes = [
     {path: '', component: HomeComponent },
+    {path: 'home', component: HomeComponent },
     {
         path: 'cliente',
         loadChildren: () => import('./pages/cliente/cliente-listar/cliente-listar.module').then((modulo) => modulo.ClienteListarModule),
@@ -29,6 +31,7 @@ const routes: Routes = [
         path: 'produto/form/:id',
         loadChildren: () => import('./pages/produto/produto-form/produto-form.module').then((modulo) => modulo.ProdutoFormModule),
     },
+    { path: '**', pathMatch   : 'full', component: NotFoundComponent},
 ];
 
 @NgModule({

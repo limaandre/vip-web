@@ -61,8 +61,15 @@ export class ClienteFormComponent implements OnInit {
     }
 
     cadastrar() {
-            if (this.form.status === 'VALID') {
-            this.appService.cliente(this.form.value, 'post').subscribe(async (response: any) => {
+        if (this.form.status === 'VALID') {
+            const id = this.activatedRoute.snapshot.params.id;
+            const values = this.form.value;
+            let typeHttp = 'post';
+            if (id) {
+                typeHttp = 'put';
+            }
+            values.id = id;
+            this.appService.cliente(values, typeHttp).subscribe(async (response: any) => {
                 if (response.status) {
                     Swal.fire({
                         title: 'Atenção',
